@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../../dist/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../../dist/assets/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../../dist/assets/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="../../../../dist/assets/ico/apple-touch-icon-57-precomposed.png">
+<link rel="shortcut icon" href="../../../../dist/assets/ico/favicon.png">
+<title>Buy'n'Sell | Admin - Edit Post</title>
+ 
+<link href="../../../../dist/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ 
+<link href="../../../../dist/assets/css/style.css" rel="stylesheet">
+ 
+<link href="../../../../dist/assets/css/owl.carousel.css" rel="stylesheet">
+<link href="../../../../dist/assets/css/owl.theme.css" rel="stylesheet">
+ 
+ 
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+ 
+<script>
+        paceOptions = {
+            elements: true
+        };
+    </script>
+<script src="../../../../dist/assets/js/pace.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+
+{{> admin/header}}
+ 
+<div class="main-container">
+<div class="container">
+<div class="row">
+
+<div class="col-sm-3 page-sidebar">
+
+<aside>
+
+{{> admin/sidebar-left}}
+ 
+</aside>
+
+</div>
+ 
+<div class="col-sm-9 page-content">
+
+{{#if success_msg}}
+            <div class="alert alert-success">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <span><b>{{success_msg}}</b></span>
+            </div>
+          {{/if}}
+
+          {{#if error_msg}}
+            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <span><b>{{error_msg}}</b></span>
+            </div>
+          {{/if}}
+
+          {{#if error}}
+            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <span><b>{{error}}</b></span>
+            </div>
+{{/if}}
+
+<div class="inner-box">
+
+<div id="accordion" class="panel-group">
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a href="#collapseB1" data-toggle="collapse" class="" aria-expanded="true"> Edit Details </a>
+</h4>
+</div>
+
+<div class="panel-collapse collapse in" id="collapseB1">
+<div class="panel-body">
+<form class="form-horizontal" method="post" action="/admin/post/edit/{{post._id}}">
+
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Status</label>
+<div class="col-md-4">
+<select id="selectbasic" name="status" class="form-control">
+<option value="{{post.status}}" selected="selected">{{post.status}}</option>
+<option value="Published">Publised</option>
+<option value="Draft">Draft</option>
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-sm-offset-3 col-sm-9">
+<button type="submit" class="btn btn-primary">Update</button>
+</div>
+</div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+
+</div>
+ 
+</div>
+</div>
+ 
+</div>
+ 
+</div>
+ 
+</div>
+ 
+{{> admin/footer}}
+ 
+</div>
+   
+ 
+<script src="../../../../dist/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="../../../../dist/assets/bootstrap/js/bootstrap.min.js"></script>
+ 
+<script src="../../../../dist/assets/js/owl.carousel.min.js"></script>
+ 
+<script src="../../../../dist/assets/js/jquery.matchHeight-min.js"></script>
+ 
+<script src="../../../../dist/assets/js/hideMaxListItem.js"></script>
+ 
+<script src="../../../../dist/assets/plugins/jquery.fs.scroller/jquery.fs.scroller.js"></script>
+<script src="../../../../dist/assets/plugins/jquery.fs.selecter/jquery.fs.selecter.js"></script>
+ 
+<script src="../../../../dist/assets/js/script.js"></script>
+
+<script>
+$(document).ready(function(){
+      setTimeout(function() {
+        $('.alert').fadeOut('fast');
+      }, 4000); // <-- time in milliseconds
+});
+</script>
+
+</body>
+
+</html>

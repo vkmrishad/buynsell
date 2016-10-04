@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../../dist/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../../dist/assets/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../../dist/assets/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="../../../../dist/assets/ico/apple-touch-icon-57-precomposed.png">
+<link rel="shortcut icon" href="../../../../dist/assets/ico/favicon.png">
+<title>'Buy'n'Sell | Admin - Users</title>
+ 
+<link href="../../../../dist/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="../../../../dist/assets/plugins/datatables/dataTables.bootstrap.min.css" rel="stylesheet">
+
+ 
+<link href="../../../../dist/assets/css/style.css" rel="stylesheet">
+ 
+<link href="../../../../dist/assets/css/owl.carousel.css" rel="stylesheet">
+<link href="../../../../dist/assets/css/owl.theme.css" rel="stylesheet">
+
+ 
+ 
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+ 
+<script>
+        paceOptions = {
+            elements: true
+        };
+    </script>
+<script src="../../../../dist/assets/js/pace.min.js"></script>
+
+<script src="../../../../dist/assets/js/jquery/jquery-1.12.3.js"></script>
+<script src="../../../../dist/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../../../dist/assets/plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>>
+
+</head>
+<body>
+<div id="wrapper">
+
+{{> admin/header}}
+ 
+<div class="main-container">
+<div class="container">
+<div class="row">
+<div class="col-sm-3 page-sidebar">
+
+<aside>
+
+{{> admin/sidebar-left}}
+ 
+</aside>
+</div>
+ 
+<div class="col-sm-9 page-content">
+
+{{#if success_msg}}
+            <div class="alert alert-success">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <span><b>{{success_msg}}</b></span>
+            </div>
+          {{/if}}
+
+          {{#if error_msg}}
+            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <span><b>{{error_msg}}</b></span>
+            </div>
+          {{/if}}
+
+          {{#if error}}
+            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <span><b>{{error}}</b></span>
+            </div>
+{{/if}}
+
+
+<div class="inner-box">
+<h2 class="title-2"><i class="icon-docs"></i> Users </h2>
+
+<a href="../../../../admin/user/add" class="btn btn-primary">Add User</a><br><br>
+
+<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Option</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        {{#each users}}
+            <tr>
+                
+                <td>{{_id}}</td>
+                <td>{{fname}}</td>
+                <td>{{role}}</td>
+
+                <!-- Post Status-->
+                    <script>
+                      if ("{{status}}" == "Active" )
+                     { document.write('<td class="center"><span class="label label-success" >{{status}}</span></td>')}
+                     else{document.write('<td class="center"><span class="label label-danger" >{{status}}</span></td>')}
+                    </script>
+
+                <!-- Post Delete-->
+                <script>
+                  function ConfirmDelete(url) {
+                      if (confirm("Are you sure you want to delete this?")) {
+                          window.open(url,"_self");
+                      } else {
+                          false;
+                      }
+                  }
+                  </script>
+
+                <td class="action-td">
+                <a style="padding: 1px 5px;" class="btn btn-w-m btn-primary" id="act_btn_wd" href="/admin/user/view/{{_id}}" title="View"><i class="fa fa-eye" ></i></a>
+
+                <a style="padding: 1px 5px;" class="btn btn-w-m btn-warning" id="act_btn_wd" href="/admin/user/edit/{{_id}}" title="Edit"><i class="fa fa-pencil" ></i></a>
+                    
+                    
+                <button type="button" style="padding: 1px 5px;" class="btn btn-w-m btn-danger" id="act_btn_wd" Onclick="return ConfirmDelete('/admin/user/delete/{{_id}}');">
+                <a style="color:#fff;" title="Delete"><i class="fa fa-trash-o"></i></a>
+                </button>
+                </td>
+            </tr>
+         {{/each}}
+
+        </tbody>
+</table>
+
+</div>
+</div>
+ 
+</div>
+ 
+</div>
+ 
+</div>
+ 
+{{> admin/footer}}
+ 
+</div>
+ 
+ 
+ 
+<!--<script src="../../../../dist/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
+<script src="../../../../dist/assets/bootstrap/js/bootstrap.min.js"></script>
+
+ 
+<script type="text/javascript" src="../../../../dist/assets/js/icheck.min.html"></script>
+ 
+<script src="../../../../dist/assets/js/owl.carousel.min.js"></script>
+ 
+<script src="../../../../dist/assets/js/jquery.matchHeight-min.js"></script>
+ 
+<script src="../../../../dist/assets/js/hideMaxListItem.js"></script>
+ 
+<script src="../../../../dist/assets/js/footablecd98.js?v=2-0-1" type="text/javascript"></script>
+<script src="../../../../dist/assets/js/footable.filtercd98.js?v=2-0-1" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#addManageTable').footable().bind('footable_filtering', function (e) {
+            var selected = $('.filter-status').find(':selected').text();
+            if (selected && selected.length > 0) {
+                e.filter += (e.filter && e.filter.length > 0) ? ' ' + selected : selected;
+                e.clear = !e.filter;
+            }
+        });
+
+        $('.clear-filter').click(function (e) {
+            e.preventDefault();
+            $('.filter-status').val('');
+            $('table.demo').trigger('footable_clear_filter');
+        });
+
+    });
+</script>
+ 
+<script>
+
+    function checkAll(bx) {
+        var chkinput = document.getElementsByTagName('input');
+        for (var i = 0; i < chkinput.length; i++) {
+            if (chkinput[i].type == 'checkbox') {
+                chkinput[i].checked = bx.checked;
+            }
+        }
+    }
+
+</script>
+
+<script>
+$(document).ready(function(){
+      setTimeout(function() {
+        $('.alert').fadeOut('fast');
+      }, 4000); // <-- time in milliseconds
+});
+</script>
+
+<script src="../../../../dist/assets/plugins/jquery.fs.scroller/jquery.fs.scroller.js"></script>
+<script src="../../../../dist/assets/plugins/jquery.fs.selecter/jquery.fs.selecter.js"></script>
+<script src="../../../../dist/assets/js/script.js"></script>
+
+</body>
+
+</html>

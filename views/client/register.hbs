@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../../dist/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../../dist/assets/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../../dist/assets/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="../../../../dist/assets/ico/apple-touch-icon-57-precomposed.png">
+<link rel="shortcut icon" href="../../../../dist/assets/ico/favicon.png">
+<title>Buy'n'Sell - Register</title>
+ 
+<link href="../../../../dist/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+ 
+<link href="../../../../dist/assets/css/style.css" rel="stylesheet">
+ 
+<link href="../../../../dist/assets/css/owl.carousel.css" rel="stylesheet">
+<link href="../../../../dist/assets/css/owl.theme.css" rel="stylesheet">
+
+<script src="../../../../dist/assets/js/jquery/jquery-2.1.4.js"></script>
+
+<script src="../../../../dist/assets/formValidation/formValidation.min.js"></script>
+<script src="../../../../dist/assets/formValidation/framework/bootstrap.min.js"></script>
+ 
+ 
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+ 
+<script>
+        paceOptions = {
+            elements: true
+        };
+    </script>
+<script src="../../../../dist/assets/js/pace.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+
+{{> client/header}}
+ 
+<div class="main-container">
+<div class="container">
+<div class="row">
+<div class="col-md-8 page-content">
+<div class="inner-box category-content">
+<h2 class="title-2"><i class="icon-user-add"></i> Create your account, Its free </h2>
+<div class="row">
+<div class="col-sm-12">
+<form id="basicBootstrapForm" class="form-horizontal" method="post" action="/register">
+<fieldset>
+ 
+<div class="form-group required">
+<label class="col-md-4 control-label">First Name <sup>*</sup></label>
+<div class="col-md-6">
+<input name="fname"  class="form-control" type="text">
+</div>
+</div>
+ 
+<div class="form-group required">
+<label class="col-md-4 control-label">Last Name <sup>*</sup></label>
+<div class="col-md-6">
+<input name="lname"  class="form-control" type="text">
+</div>
+</div>
+
+<div class="form-group required">
+<label class="col-md-4 control-label">Username <sup>*</sup></label>
+<div class="col-md-6">
+<input name="username"  class="form-control" type="text">
+</div>
+</div>
+ 
+<div class="form-group required">
+<label class="col-md-4 control-label">Phone Number <sup>*</sup></label>
+<div class="col-md-6">
+<input name="mnumber"  class="form-control" type="text">
+</div>
+</div>
+  
+<div class="form-group required">
+<label  class="col-md-4 control-label">Email
+<sup>*</sup></label>
+<div class="col-md-6">
+<input name="email" type="email" class="form-control"  >
+</div>
+</div>
+<div class="form-group required">
+<label  class="col-md-4 control-label">Password <sup>*</sup></label>
+<div class="col-md-6">
+<input type="password" name="password" class="form-control" >
+
+</div>
+</div>
+
+<div class="form-group required">
+<label  class="col-md-4 control-label">Confirm Password <sup>*</sup></label>
+<div class="col-md-6">
+<input type="password" name="cpassword" class="form-control"  >
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-md-4 control-label"></label>
+<div class="col-md-8">
+<div style="clear:both"></div>
+<button type="submit" class="btn btn-primary" title="Login"><span><span>Register</span></span></button>
+</div>
+</div>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+</div>
+ 
+<div class="col-md-4 reg-sidebar">
+<div class="reg-sidebar-inner text-center">
+<div class="promo-text-box"><i class=" icon-picture fa fa-4x icon-color-1"></i>
+<h3><strong>Post a Free Classified</strong></h3>
+<p> Post your free online classified ads with us. Lorem ipsum dolor sit amet, consectetur
+adipiscing elit. </p>
+</div>
+<div class="promo-text-box"><i class=" icon-pencil-circled fa fa-4x icon-color-2"></i>
+<h3><strong>Create and Manage Items</strong></h3>
+<p> Nam sit amet dui vel orci venenatis ullamcorper eget in lacus.
+Praesent tristique elit pharetra magna efficitur laoreet.</p>
+</div>
+<div class="promo-text-box"><i class="  icon-heart-2 fa fa-4x icon-color-3"></i>
+<h3><strong>Create your Favorite ads list.</strong></h3>
+<p> PostNullam quis orci ut ipsum mollis malesuada varius eget metus.
+Nulla aliquet dui sed quam iaculis, ut finibus massa tincidunt.</p>
+</div>
+</div>
+</div>
+</div>
+ 
+</div>
+ 
+</div>
+ 
+{{> client/footer}}
+ 
+</div>
+
+<script>
+$(document).ready(function() {
+
+  FormValidation.Validator.securePassword = {
+        validate: function(validator, $field, options) {
+            var value = $field.val();
+            if (value === '') {
+                return true;
+            }
+
+            // Check the password strength
+            if (value.length < 8) {
+                return {
+                    valid: false,
+                    message: 'The password must be more than 8 characters long'
+                };
+            }
+
+
+            return true;
+        }
+    };
+
+
+    $('#basicBootstrapForm').formValidation({
+        framework: 'bootstrap',
+        excluded: [':disabled'],
+        icon: {
+              valid: 'fa fa-check',
+              invalid: 'fa fa-times',
+              validating: 'fa fa-refresh'
+        },
+        fields: {
+            fname: {
+                validators: {
+                    notEmpty: {
+                        message: 'First name is required'
+                    },
+                    stringLength: {
+                        max: 30,
+                        message: 'First Name must be less than 30 characters'
+                    }
+
+                }
+                            },
+
+            lname: {
+                validators: {
+                    notEmpty: {
+                        message: 'Last name is required'
+                    },
+                    stringLength: {
+                        max: 30,
+                        message: 'Last Name must be less than 30 characters'
+                    }
+
+                }
+            },
+
+            username: {
+                validators: {
+                    notEmpty: {
+                        message: 'Username is required'
+                    }
+                }
+            },
+
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'Email is required'
+                    },
+                    regexp: {
+                        regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
+                        message: 'Not a valid email address'
+                    }
+                }
+            },
+
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: 'Password is required'
+                    },
+                    securePassword: {
+                        message: 'Password is not valid'
+                    }
+                }
+            },
+
+            cpassword: {
+                validators: {
+                    notEmpty: {
+                        message: 'Confirm password is required'
+                    },
+                    identical: {
+                    field: 'password',
+                    message: ' Confirm Password is not same'
+                    },
+                    securePassword: {
+                        message: 'Confirm password is not valid'
+                    }
+                },
+            },
+
+            mnumber: {
+                validators: {
+                    notEmpty: {
+                        message: 'Mobile number is required'
+                    },
+                    phone: {
+                        country: 'IN',
+                        message: 'Not a valid mobile number'
+                    }
+                }
+            }
+            
+
+        }
+    })
+
+});
+</script>
+   
+ 
+<!--<script src="../../../../dist/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
+<script src="../../../../dist/assets/bootstrap/js/bootstrap.min.js"></script>
+ 
+<script src="../../../../dist/assets/js/owl.carousel.min.js"></script>
+ 
+<script src="../../../../dist/assets/js/jquery.matchHeight-min.js"></script>
+ 
+<script src="../../../../dist/assets/js/hideMaxListItem.js"></script>
+ 
+<script src="../../../../dist/assets/plugins/jquery.fs.scroller/jquery.fs.scroller.js"></script>
+<script src="../../../../dist/assets/plugins/jquery.fs.selecter/jquery.fs.selecter.js"></script>
+ 
+<script src="../../../../dist/assets/js/script.js"></script>
+</body>
+
+
+</html>

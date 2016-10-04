@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../../dist/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../../dist/assets/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../../dist/assets/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="../../../../dist/assets/ico/apple-touch-icon-57-precomposed.png">
+<link rel="shortcut icon" href="../../../../dist/assets/ico/favicon.png">
+<title>Buy'n'Sell | Admin - Add User</title>
+ 
+<link href="../../../../dist/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ 
+<link href="../../../../dist/assets/css/style.css" rel="stylesheet">
+ 
+<link href="../../../../dist/assets/css/owl.carousel.css" rel="stylesheet">
+<link href="../../../../dist/assets/css/owl.theme.css" rel="stylesheet">
+ 
+ 
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+ 
+<script>
+        paceOptions = {
+            elements: true
+        };
+    </script>
+<script src="../../../../dist/assets/js/pace.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+
+{{> admin/header}}
+ 
+<div class="main-container">
+<div class="container">
+<div class="row">
+
+<div class="col-sm-3 page-sidebar">
+
+<aside>
+
+{{> admin/sidebar-left}}
+ 
+</aside>
+
+</div>
+ 
+<div class="col-sm-9 page-content">
+<div class="inner-box">
+<div class="row">
+<div class="col-md-5 col-xs-4 col-xxs-12">
+<h3 class="no-padding text-center-480 useradmin"><a><img class="userImg" src="../../../../dist/images/user.jpg" alt="user"> &nbsp;&nbsp;{{userlist.fname}}</a></h3>
+</div>
+<div class="col-md-7 col-xs-8 col-xxs-12">
+<div class="header-data text-center-xs">
+ 
+<div class="hdata">
+<div class="mcol-left">
+ 
+<i class="fa fa-eye ln-shadow"></i></div>
+<div class="mcol-right">
+ 
+<p><a href="#">7000</a> <em>visits</em></p>
+</div>
+<div class="clearfix"></div>
+</div>
+ 
+<div class="hdata">
+<div class="mcol-left">
+ 
+<i class="icon-th-thumb ln-shadow"></i></div>
+<div class="mcol-right">
+ 
+<p><a href="#">12</a><em>Ads</em></p>
+</div>
+<div class="clearfix"></div>
+</div>
+ 
+<div class="hdata">
+<div class="mcol-left">
+ 
+<i class="fa fa-user ln-shadow"></i></div>
+<div class="mcol-right">
+ 
+<p><a href="#">18</a> <em>Favorites </em></p>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{{#if success_msg}}
+            <div class="alert alert-success">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <span><b>{{success_msg}}</b></span>
+            </div>
+          {{/if}}
+
+          {{#if error_msg}}
+            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <span><b>{{error_msg}}</b></span>
+            </div>
+          {{/if}}
+
+          {{#if error}}
+            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <span><b>{{error}}</b></span>
+            </div>
+{{/if}}
+
+<div class="inner-box">
+
+<!--
+<div class="welcome-msg">
+<h3 class="page-sub-header2 clearfix no-padding">Hello {{userlist.fname}} </h3>
+<span class="page-sub-header-sub small">You last logged in at: 01-01-2014 12:40 AM [UK time (GMT + 6:00hrs)]</span>
+</div>
+-->
+<div id="accordion" class="panel-group">
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title"><a href="#collapseB1" data-toggle="collapse" class="" aria-expanded="true"> Add Details </a>
+</h4>
+</div>
+
+<div class="panel-collapse collapse in" id="collapseB1">
+<div class="panel-body">
+<form class="form-horizontal" method="post" action="/admin/user/add">
+
+<div class="form-group">
+<label class="col-sm-3 control-label">First Name</label>
+<div class="col-sm-8">
+<input type="text" name="fname" class="form-control">
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Last Name</label>
+<div class="col-sm-8">
+<input type="text" name="lname" class="form-control">
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Status</label>
+<div class="col-md-4">
+<select id="selectbasic" name="status" class="form-control">
+<option value="Active">Active</option>
+<option value="Blocked">Block</option>
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Role</label>
+<div class="col-md-4">
+<select id="selectbasic" name="role" class="form-control">
+<option value="User">User</option>
+<option value="Admin">Admin</option>
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Username</label>
+<div class="col-sm-8">
+<input type="text" name="username" class="form-control">
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Email</label>
+<div class="col-sm-8">
+<input type="email" name="email" class="form-control">
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Phone Number</label>
+<div class="col-sm-8">
+<input type="text" name="mnumber" class="form-control">
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">New Password</label>
+<div class="col-sm-8">
+<input type="password" name="password" class="form-control">
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Confirm Password</label>
+<div class="col-sm-8">
+<input type="password" name="cfmpassword" class="form-control">
+</div>
+</div>
+
+<br><br>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Address Line 1</label>
+<div class="col-sm-8">
+<input type="text" name="address1" class="form-control">
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Address Line 2</label>
+<div class="col-sm-8">
+<input type="text" name="address2" class="form-control">
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Address Line 3</label>
+<div class="col-sm-8">
+<input type="text" name="address3" class="form-control">
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">City/Town</label>
+<div class="col-sm-8">
+<input type="text" name="place" class="form-control">
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Landmark</label>
+<div class="col-sm-8">
+<input type="text" name="landmark" class="form-control">
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Pincode</label>
+<div class="col-sm-8">
+<input type="text" name="pin" class="form-control">
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">District</label>
+<div class="col-sm-8">
+<input type="text" name="district" class="form-control">
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">State</label>
+<div class="col-sm-8">
+<input type="text" name="state" class="form-control" >
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-3 control-label">Country</label>
+<div class="col-sm-8">
+<input type="text" name="country" class="form-control" value="India" disabled="">
+</div>
+</div>
+
+<br>
+
+<div class="form-group">
+<div class="col-sm-offset-3 col-sm-9">
+<button type="submit" class="btn btn-primary">Update</button>
+</div>
+</div>
+
+</form>
+
+</div>
+</div>
+</div>
+
+</div>
+ 
+</div>
+</div>
+ 
+</div>
+ 
+</div>
+ 
+</div>
+ 
+{{> admin/footer}}
+ 
+</div>
+   
+ 
+<script src="../../../../dist/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="../../../../dist/assets/bootstrap/js/bootstrap.min.js"></script>
+ 
+<script src="../../../../dist/assets/js/owl.carousel.min.js"></script>
+ 
+<script src="../../../../dist/assets/js/jquery.matchHeight-min.js"></script>
+ 
+<script src="../../../../dist/assets/js/hideMaxListItem.js"></script>
+ 
+<script src="../../../../dist/assets/plugins/jquery.fs.scroller/jquery.fs.scroller.js"></script>
+<script src="../../../../dist/assets/plugins/jquery.fs.selecter/jquery.fs.selecter.js"></script>
+ 
+<script src="../../../../dist/assets/js/script.js"></script>
+
+<script>
+$(document).ready(function(){
+      setTimeout(function() {
+        $('.alert').fadeOut('fast');
+      }, 4000); // <-- time in milliseconds
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../../dist/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../../../dist/assets/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../../../dist/assets/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="../../../../dist/assets/ico/apple-touch-icon-57-precomposed.png">
+<link rel="shortcut icon" href="../../../../dist/assets/ico/favicon.png">
+<title>Buy'n'Sell | Admin - Login</title>
+ 
+<link href="../../../../dist/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+ 
+<link href="../../../../dist/assets/css/style.css" rel="stylesheet">
+ 
+<link href="../../../../dist/assets/css/owl.carousel.css" rel="stylesheet">
+<link href="../../../../dist/assets/css/owl.theme.css" rel="stylesheet">
+ 
+ 
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+ 
+<script>
+        paceOptions = {
+            elements: true
+        };
+    </script>
+<script src="../../../../dist/assets/js/pace.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+
+{{> admin/header}}
+ 
+<div class="main-container">
+<div class="container">
+
+{{#if success_msg}}
+            <div class="alert alert-success">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <span><b>{{success_msg}}</b></span>
+            </div>
+          {{/if}}
+
+          {{#if error_msg}}
+            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <span><b>{{error_msg}}</b></span>
+            </div>
+          {{/if}}
+
+          {{#if error}}
+            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <span><b>{{error}}</b></span>
+            </div>
+{{/if}}
+
+<div class="row">
+<div class="col-sm-5 login-box">
+<div class="panel panel-default">
+<div class="panel-intro text-center">
+<h2 class="logo-title">
+ADMIN - Login
+</h2>
+</div>
+<div class="panel-body">
+<form method="post" action="/admin" >
+<div class="form-group">
+<div class="input-icon"><i class="icon-user fa"></i>
+<input type="text"  class="form-control" placeholder="Username" name="username" >
+</div>
+</div>
+<div class="form-group">
+<div class="input-icon"><i class="icon-lock fa"></i>
+<input type="password" class="form-control" placeholder="Password" name="password" >
+</div>
+</div>
+<div class="form-group">
+<button type="submit" class="btn btn-primary btn-block " title="Login">Login</button>
+</div>
+</form>
+</div>
+<div class="panel-footer">
+<div class="checkbox pull-left">
+<label> <input type="checkbox" value="1" name="remember" id="remember"> Keep me logged
+in</label>
+</div>
+<p class="text-center pull-right"><a href="forgot-password.html"> Lost your password? </a>
+</p>
+<div style=" clear:both"></div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+ 
+{{> admin/footer}}
+ 
+</div>
+ 
+ 
+ 
+<script src="../../../../dist/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="../../../../dist/assets/bootstrap/js/bootstrap.min.js"></script>
+ 
+<script src="../../../../dist/assets/js/owl.carousel.min.js"></script>
+ 
+<script src="../../../../dist/assets/js/form-validation.js"></script>
+ 
+<script src="../../../../dist/assets/js/jquery.matchHeight-min.js"></script>
+ 
+<script src="../../../../dist/assets/js/hideMaxListItem.js"></script>
+ 
+<script src="../../../../dist/assets/plugins/jquery.fs.scroller/jquery.fs.scroller.js"></script>
+<script src="../../../../dist/assets/plugins/jquery.fs.selecter/jquery.fs.selecter.js"></script>
+ 
+<script src="../../../../dist/assets/js/script.js"></script>
+
+<script>
+$(document).ready(function(){
+      setTimeout(function() {
+        $('.alert').fadeOut('fast');
+      }, 4000); // <-- time in milliseconds
+});
+</script>
+</body>
+
+</html>
